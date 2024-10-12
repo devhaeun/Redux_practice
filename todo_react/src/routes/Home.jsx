@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { actionCreators } from '../store';
+import { add, remove } from '../store';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -20,13 +20,13 @@ const Home = () => {
     };
 
     const onClick = () => {
-        dispatch(actionCreators.addToDo(text));
+        dispatch(add(text));
     }
 
     const onDelClick = (e) => {
         // console.log(e.target.parentNode);
         const id = parseInt(e.target.parentNode.id);
-        dispatch(actionCreators.deleteToDo(id));
+        dispatch(remove(id));
     }
 
     return (
